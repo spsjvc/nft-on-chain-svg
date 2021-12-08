@@ -1,15 +1,7 @@
-# Basic Sample Hardhat Project
+# nft-on-chain-svg
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+Super simple ERC-721 token whose metadata is stored fully on-chain. This includes the image which is an SVG.
 
-Try running some of the following tasks:
+Here's the contract deployed to Rinkeby: https://rinkeby.etherscan.io/address/0xB1120de8519C85c8c896E022574CFcFEe5E43f7d.
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+Here's the collection on OpenSea: https://testnets.opensea.io/collection/token-e9fqoxck1h.
