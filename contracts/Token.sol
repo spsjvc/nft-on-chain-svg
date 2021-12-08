@@ -1,6 +1,7 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
+import "base64-sol/base64.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
@@ -24,8 +25,7 @@ contract Token is ERC721, Ownable {
 
     function tokenURI(uint256 tokenId) override public pure returns (string memory) {
         string memory svg = _getSVG(tokenId);
-
-        return string(
+        string memory json = Base64.encode(bytes(string(
             abi.encodePacked(
                 "{\"name\":\"Token #",
                 Strings.toString(tokenId),
@@ -33,7 +33,9 @@ contract Token is ERC721, Ownable {
                 svg,
                 "\"}"
             )
-        );
+        )));
+
+        return string(abi.encodePacked("data:application/json;base64,", json));
     }
 
     function mint() public {
